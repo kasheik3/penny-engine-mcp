@@ -1,0 +1,13 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kasheik3/penny-engine",
+  "title": "Penny Engine — Agent Operations",
+  "description": "Remote MCP tools for structured data, deterministic commerce utilities, task matching, and discovering separately hosted x402 paid services with free input preflight.",
+  "version": "0.7.7",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://penny-agent-api-production.up.railway.app/mcp"
+    }
+  ]
+}
