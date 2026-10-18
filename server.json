@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.kasheik3/penny-engine",
   "title": "Penny Engine — Agent Operations",
-  "description": "Remote MCP tools for structured data, deterministic commerce utilities, task matching, and discovering separately hosted x402 paid services with free input preflight.",
+  "description": "Remote MCP utilities for agents: structured data, commerce checks, and x402 paid API discovery.",
   "version": "0.7.7",
   "remotes": [
     {
