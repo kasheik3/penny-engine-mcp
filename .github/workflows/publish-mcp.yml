@@ -1,0 +1,30 @@
+name: Publish Penny Engine to MCP Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - server.json
+      - .github/workflows/publish-mcp.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout publisher files
+        uses: actions/checkout@v4
+      - name: Download official MCP publisher
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+          chmod +x ./mcp-publisher
+      - name: Authenticate verified GitHub publisher
+        run: ./mcp-publisher login github-oidc
+      - name: Publish Penny Engine remote MCP server
+        run: ./mcp-publisher publish server.json
